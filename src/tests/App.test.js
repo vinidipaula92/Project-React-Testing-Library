@@ -23,7 +23,7 @@ describe('Teste o componente App.js', () => {
     expect(favorite).toBeInTheDocument();
     userEvent.click(favorite);
   });
-  it('Teste o link possui o texto home e é redirecionado ao /home', () => {
+  it('Navega até uma rota não existente 404', () => {
     const { history } = renderWithRouter(<App />);
     history.push('/xablau');
     const notFound = screen.getByRole('heading', { name: /Page requested not found/i });
