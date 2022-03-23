@@ -11,8 +11,11 @@ describe('Teste o componente FavoritePokemons.js', () => {
     expect(favorite).toBeDefined();
   });
 /*   it('Teste se é exibido todos os cards de pokémons favoritados.', async () => {
+    jest.spyOn(global, 'fetch').mockResolvedValue({
+      json: jest.fn().mockResolvedValue(renderFavoritePokemon),
+    });
     const { history } = renderWithRouter(<App />);
     history.push('/favorites');
-    const favoritePokemon = screen.getByRole();
+    const favoritePokemon = screen.findByText();
   }); */
 });
