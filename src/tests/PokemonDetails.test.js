@@ -4,10 +4,12 @@ import React from 'react';
 import App from '../App';
 import renderWithRouter from './renderWithRouter';
 
+const url = '/pokemons/65';
+
 describe('Teste o componente PokemonDetails.js', () => {
   it('Teste se as informações do Pokémon selecionado são mostradas na tela.', () => {
     const { history } = renderWithRouter(<App />);
-    history.push('/pokemons/65');
+    history.push(url);
     const details = screen
       .getByRole('heading', { name: /Alakazam Details/i, level: 2 });
     expect(details).toBeDefined();
@@ -20,7 +22,7 @@ describe('Teste o componente PokemonDetails.js', () => {
   });
   it('Teste se tem uma seção com os mapas contendo as localizações do pokémon', () => {
     const { history } = renderWithRouter(<App />);
-    history.push('/pokemons/65');
+    history.push(url);
     const detailsMap = screen
       .getByRole('heading', { name: /Game Locations of Alakazam/i, level: 2 });
     expect(detailsMap).toBeDefined();
@@ -33,7 +35,7 @@ describe('Teste o componente PokemonDetails.js', () => {
   });
   it('Teste se o usuário pode favoritar um pokémon através da página detalhes.', () => {
     const { history } = renderWithRouter(<App />);
-    history.push('/pokemons/65');
+    history.push(url);
     const checked = screen.getByText(/pokémon favoritado?/i);
     expect(checked).toBeDefined();
     userEvent.click(checked);
